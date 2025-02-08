@@ -6,13 +6,13 @@ def resume_view(request):
     experience = Experience.objects.filter(profile=profile)
     education = Education.objects.filter(profile=profile)
     skill = Skill.objects.filter(profile=profile)
-    project = Project.objects.filter(profile=profile)
+    projects = Project.objects.filter(profile=profile)
     
     context = {
         'profile': profile,
         'experience': experience,
         'education': education,
         'skill': skill,
-        'project': project
+        'projects': projects
     }
     return render(request, 'resume.html', context)
