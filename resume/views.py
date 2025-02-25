@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import Profile, Experience, Education, Skill, Project
 
+#home view
+def home_view(request):
+    return render(request, 'home.html')
+
 def resume_view(request):
     profile = Profile.objects.first()
     experience = Experience.objects.filter(profile=profile)
@@ -16,3 +20,4 @@ def resume_view(request):
         'projects': projects
     }
     return render(request, 'resume.html', context)
+
